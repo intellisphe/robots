@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple Verified Robots.txt</title>
+    <meta name="description" content="Simple tool to update your robots.txt and block AI bots while keeping Google Search working.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">RobotsTXT Guardian</span>
+            </div>
+        </div>
+    </header> -->
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>A Simple Verified Robots.txt</h1>
+                <p class="hero-subtitle">Use this to block AI crawlers. Google Search stays on.</p>
+            </div>
+        </section>
+
+        <!-- <section class="trust-section">
+            <div class="container">
+                <p class="trust-text">Trusted by publishers worldwide</p>
+                <div class="examples-list">
+                    <span class="example-badge">NYTimes</span>
+                    <span class="example-badge">BBC</span>
+                    <span class="example-badge">Reuters</span>
+                    <span class="example-badge">CNN</span>
+                    <span class="example-badge">The Guardian</span>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="main-section">
+            <div class="container">
+                <div class="robots-card">
+                    <div class="cms-box-simple">
+                        <label for="sitemap-input">Add your sitemap:</label>
+                        <input type="text" id="sitemap-input" class="sitemap-input" placeholder="https://yourwebsite.com/sitemap.xml" />
+                    </div>
+
+                    <div class="cms-box-simple">
+                        <label for="cms-select">Add CMS-specific rules:</label>
+                        <select id="cms-select" class="cms-dropdown">
+                            <option value="">None or N/A</option>
+                            <option value="wordpress">WordPress</option>
+                            <option value="woocommerce">WooCommerce</option>
+                            <option value="joomla">Joomla</option>
+                            <option value="drupal">Drupal</option>
+                            <option value="magento">Magento</option>
+                        </select>
+                    </div>
+
+                    <div class="code-block-clean">
+                        <div class="code-actions">
+                            <button class="code-action-btn" id="download-btn-main" title="Download robots.txt">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="code-action-btn" id="copy-btn-main" title="Copy to clipboard">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre id="generated-robots-main"></pre>
+                    </div>
+                    
+                    <div class="install-box">
+                        <h3>How to install:</h3>
+                        <ol>
+                            <li><a href="#" id="download-link-text" class="download-link">Download</a> the robots.txt file</li>
+                            <li>Upload to your website root (where your homepage is)</li>
+                            <li>Verify its correct with the tool below</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="customize-section">
+            <div class="container">
+                <div class="customize-card">
+                    <h2>Audit your current robots.txt?</h2>
+                    <!-- <p class="customize-desc">Enter your website URL or paste your current robots.txt. We'll analyze it and add AI bot protection while keeping your existing rules.</p> -->
+                    
+                    <div class="customize-input-group">
+                        <input type="text" id="smart-input" placeholder="Type your domain  OR  paste your current robots.txt..." />
+                        <button class="btn-secondary" id="generate-btn">Analyze & Generate</button>
+                    </div>
+                    
+                        <div class="custom-results hidden" id="custom-results">
+                            <div class="status-badge-wrapper">
+                                <div class="status-badge" id="status-summary"></div>
+                            </div>
+                            
+                            <div id="audit-results"></div>
+                            
+                            <h3 class="custom-robots-heading">Updated robots.txt:</h3>
+                            
+                            <div class="code-block-clean">
+                                <button class="copy-btn-secondary" id="copy-btn-custom">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                    Copy Custom Version
+                                </button>
+                                <pre id="generated-robots-custom"></pre>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>What this does</h3>
+                        <p>Blocks 100+ AI crawlers (GPTBot, ClaudeBot, Google-Extended, etc.) while explicitly allowing search engines like Google, Bing, and DuckDuckGo.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Is it safe?</h3>
+                        <p>Yes. This is the standard method used by major publishers. Your SEO and Google rankings won't be affected and it's completely free</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Will they respect it?</h3>
+                        <p>
+                            Almost all AI companies follow robots.txt directives (OpenAI, Anthropic, Google, etc.). 
+                            <a href="https://radar.cloudflare.com/embed/AiBotBestPracticesTable?widgetState=%7B%7D&ref=%2Fai-insights" target="_blank" rel="noopener">
+                                See which bots respect robots.txt
+                            </a>.
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="source-link">Bot list maintained at <a href="https://github.com/ai-robots-txt/ai.robots.txt" target="_blank">github.com/ai-robots-txt</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- <footer>
+        <div class="container">
+            <p class="footer-text">Free tool. No signup required.</p>
+            <p class="footer-contributor">Contributor to <a href="https://github.com/ai-robots-txt/ai.robots.txt" target="_blank" rel="noopener">ai-robots-txt/ai.robots.txt</a></p>
+        </div>
+    </footer> -->
+
+    <script src="app.js"></script>
+</body>
+</html>
